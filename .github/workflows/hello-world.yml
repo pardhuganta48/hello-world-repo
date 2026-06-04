@@ -5,7 +5,7 @@ on:
 jobs:
     hello-job:
         outputs:
-          MSG: ${ steps.hello1.MSG }
+          MSG: ${{ steps.hello1.outputs.MSG}}
         runs-on: ubuntu-latest
         steps:
         - name:  Echo text
@@ -15,7 +15,7 @@ jobs:
           run: echo $MSG
     job2:
         env:
-          messages: ${ needs.outputs.MSG }
+          messages: ${{ needs.hello-job.outputs.MSG}}
         needs: hello-job
         runs-on: ubuntu-latest
         steps:
