@@ -1,10 +1,16 @@
 name: Hello World
 on: 
-    push
+    push: 
+      
 jobs:
     hello-job:
         runs-on: ubuntu-latest
         steps:
         - name:  Echo text
-          run:  echo "Hello, world!"
+          run:  echo MSG="Hello, world!" >> $GITHUB_ENV
+    job2:
+        runs-on: ubuntu-latest
+        steps:
+        - name: use output from 
+          run: echo MSG
         
