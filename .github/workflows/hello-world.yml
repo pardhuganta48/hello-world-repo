@@ -20,5 +20,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: use output from 
-          run: echo ${{ needs.hello-job.outputs.MSG }}
+          run: echo ${{ env.messages }}
         
