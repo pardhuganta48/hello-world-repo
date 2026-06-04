@@ -4,15 +4,21 @@ on:
       
 jobs:
     hello-job:
+        outputs:
+          MSG: ${ steps.hello1.MSG }
         runs-on: ubuntu-latest
         steps:
         - name:  Echo text
-          run:  echo MSG="Hello, world!" >> $GITHUB_ENV
+          id: hello1
+          run:  echo MSG="Hello, world!" >> $GITHUB_OUTPUT
         - name: use output from 
           run: echo $MSG
     job2:
+        env:
+          messages: ${ needs.outputs.MSG }
+        needs: hello-job
         runs-on: ubuntu-latest
         steps:
         - name: use output from 
-          run: echo $env.MSG
+          run: echo $env.messages
         
