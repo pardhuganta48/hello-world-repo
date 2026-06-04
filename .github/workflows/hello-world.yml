@@ -8,9 +8,11 @@ jobs:
         steps:
         - name:  Echo text
           run:  echo MSG="Hello, world!" >> $GITHUB_ENV
+        - name: use output from 
+          run: echo $MSG
     job2:
         runs-on: ubuntu-latest
         steps:
         - name: use output from 
-          run: echo MSG
+          run: echo $MSG
         
