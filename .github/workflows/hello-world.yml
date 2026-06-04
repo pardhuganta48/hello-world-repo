@@ -14,5 +14,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: use output from 
-          run: echo $MSG
+          run: echo $env.MSG
         
