@@ -15,10 +15,10 @@ jobs:
           run: echo $MSG
     job2:
         env:
-          messages: ${{ needs.hello-job.outputs.MSG}}
+          messages: ${{ needs.hello-job.outputs.MSG }}
         needs: hello-job
         runs-on: ubuntu-latest
         steps:
         - name: use output from 
-          run: echo $env.messages
+          run: echo ${{ needs.hello-job.outputs.MSG }}
         
