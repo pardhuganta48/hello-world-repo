@@ -12,7 +12,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: using output of called flow
-            run: echo " ${{ needs.job1.outputs.msg_string }} is admin"
+            run: echo " ${{ needs.job1.outputs.outputmsg }} is admin"
 
         
 
