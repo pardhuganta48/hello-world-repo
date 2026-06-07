@@ -5,5 +5,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: re-use flow call
-              uses: .github/workflows/re-usable.yml
+              uses: ./.github/workflows/re-usable.yml
 
