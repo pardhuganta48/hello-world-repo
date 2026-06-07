@@ -28,6 +28,6 @@ jobs:
       run: echo "secret is  ${{ secrets.admin_name}}"
     - name : echo output
       id: echo_output
-      run: echo "outputmsg=${{ secrets.msg}}" >> $GITHUB_OUTPUT
+      run: echo "outputmsg=${{ secrets.MSG}}" >> $GITHUB_OUTPUT
     - name: echo environment 
       run: echo hello ${{ inputs.name }}
