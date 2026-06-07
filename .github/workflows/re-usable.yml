@@ -1,15 +1,33 @@
 on:
     workflow_call:
+        inputs:
+          name: 
+            default: "pardhu"
+            required: false
+            type: string
+        secrets:
+          admin_name:
+            description: admin name
+            required: true 
+        outputs:
+          msg_string:
+            description: string msg
+            value: ${{ jobs.job1.outputs.output_msg }}
+
+
+        
 name: reuse-flow
-env:
-   envmsg: "pardhu"
+
 jobs:
   job1:
+    outputs:
+      output_msg: ${{ steps.echo_output.outputs.outputmsg }}
     runs-on: ubuntu-latest
     steps:
     - name: echo secret
-      run: echo "secret is  ${{ secrets.msg}}"
+      run: echo "secret is  ${{ secrets.admin_name}}"
     - name : echo output
-      run: echo "outputmsg=${{ secrets.msg}}"
+      id: echo_output
+      run: echo "outputmsg=${{ secrets.msg}}" >> $GITHUB_OUTPUT
     - name: echo environment 
-      run: echo ${{ env.envmsg }}
+      run: echo hello ${{ inputs.name }}

@@ -3,4 +3,16 @@ on: push
 jobs:
     job1:
         uses: ./.github/workflows/re-usable.yml
+        secrets:
+            admin_name: "kanna"
+        with:
+            name: "rocky"
+    job2:
+        needs: job1
+        runs-on: ubuntu-latest
+        steps:
+          - name: using output of called flow
+            run: echo " ${{ needs.job1.outputs.msg_string }} is admin"
+
+        
 
