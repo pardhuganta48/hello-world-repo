@@ -4,8 +4,6 @@ on:
       
 jobs:
     hello-job:
-        outputs:
-          MSG: ${{ steps.hello1.outputs.MSG}}
         runs-on: ubuntu-latest
         steps:
         - name:  Echo text
@@ -21,4 +19,9 @@ jobs:
         steps:
         - name: use output from 
           run: echo ${{ env.messages }}
+    job3:
+        runs-on: ubuntu-latest
+        steps:
+        - name: echo ob
+          run: echo "job3" 
         

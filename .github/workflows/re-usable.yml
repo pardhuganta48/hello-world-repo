@@ -1,0 +1,15 @@
+on:
+    workflow_call:
+name: reuse-flow
+env:
+   envmsg: "pardhu"
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: echo secret
+      run: echo "secret is  ${{ secrets.msg}}"
+    - name : echo output
+      run: echo "outputmsg=${{ secrets.msg}}"
+    - name: echo environment 
+      run: echo ${{ env.envmsg }}
